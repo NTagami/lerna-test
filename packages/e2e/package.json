@@ -1,0 +1,35 @@
+{
+  "name": "e2e",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "Naoki Tagami <Naoki.Tagami@sony.com>",
+  "homepage": "https://github.com/NTagami/lerna-test#readme",
+  "license": "ISC",
+  "main": "lib/e2e.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NTagami/lerna-test.git"
+  },
+  "scripts": {
+    "test": "cypress run"
+  },
+  "bugs": {
+    "url": "https://github.com/NTagami/lerna-test/issues"
+  },
+"dependencies": {
+    "@types/node": "^10.12.11"
+},
+    "devDependencies": {
+    "@cypress/webpack-preprocessor": "^4.0.2",
+    "cypress": "^3.4.1",
+    "cypress-cucumber-preprocessor": "^1.13.1",
+    "ts-loader": "^5.3.1"
+}
+}
