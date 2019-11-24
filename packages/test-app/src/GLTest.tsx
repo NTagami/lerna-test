@@ -3,6 +3,7 @@ import * as React from "react";
 import { DispatchProp } from "react-redux";
 
 import { jsx } from "@emotion/core";
+//import css from "@emotion/css/macro";
 import { push } from "connected-react-router";
 import { makeFCHelper, vertical } from "./CommonStyles";
 import { buildGLScene, GLScene, glError, GLError, GLContext } from "./GLScene";
@@ -11,7 +12,12 @@ import * as E from "fp-ts/lib/Either";
 import { pipe } from "fp-ts/lib/pipeable";
 
 type Props = DispatchProp;
-
+/*
+export const vertical = css`
+  display: flex;
+  flex-direction: column;
+`;
+*/
 function buildScene(canvas: HTMLCanvasElement): E.Either<GLError, GLScene> {
   /*
   const gl =
