@@ -39,7 +39,7 @@ const TodoComponent: React.FC<Props> = ({
       />
       {helper.button("Add todo", cbOnAdd)}
       {helper.staticButton("Drawer", cbOpenDrawer)}
-      {helper.staticButton("Hoge", gotoHoge)}
+      {helper.staticButton("GL", gotoHoge)}
       {React.useMemo(
         () => (
           <ul>

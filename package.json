@@ -18,12 +18,6 @@
     "typesafe-actions": "^5.1.0"
   },
   "devDependencies": {
-    "lerna": "^3.19.0",
-    "@types/jest": "24.0.23",
-    "@types/node": "12.12.11",
-    "@types/react": "16.9.11",
-    "@types/react-dom": "16.9.4",
-    "typescript": "3.7.2",
     "@babel/plugin-proposal-nullish-coalescing-operator": "^7.4.4",
     "@babel/plugin-proposal-optional-chaining": "^7.6.0",
     "@storybook/addon-actions": "^5.2.6",
@@ -38,6 +32,10 @@
     "@storybook/react": "^5.2.6",
     "@types/gl-matrix": "^2.4.5",
     "@types/history": "^4.7.3",
+    "@types/jest": "24.0.23",
+    "@types/node": "12.12.11",
+    "@types/react": "16.9.11",
+    "@types/react-dom": "16.9.4",
     "@types/react-redux": "^7.1.5",
     "@types/react-router": "^5.1.2",
     "@typescript-eslint/eslint-plugin": "^2.6.1",
@@ -47,9 +45,12 @@
     "cypress-cucumber-preprocessor": "^1.16.2",
     "eslint": "^6.6.0",
     "eslint-plugin-react": "^7.16.0",
+    "fast-check": "^1.19.0",
     "jest-webgl-canvas-mock": "^0.2.2",
+    "lerna": "^3.19.0",
     "react-docgen-typescript-loader": "^3.5.0",
     "redux-devtools": "^3.5.0",
-    "standard-version": "^7.0.0"
+    "standard-version": "^7.0.0",
+    "typescript": "3.7.2"
   }
 }

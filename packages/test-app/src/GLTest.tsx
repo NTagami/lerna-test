@@ -64,7 +64,10 @@ export const GLTest: React.FC<Props> = ({ dispatch }) => {
 
   return (
     <div css={vertical}>
-      <div>{helper.button("Main", () => dispatch(push("/")))}</div>
+      <div>
+        {helper.button("Main", () => dispatch(push("/")))}
+        {helper.button("Map", () => dispatch(push("/map")))}
+      </div>
       <div>
         <canvas ref={canvasRef} width={"500px"} height={"300px"} />
       </div>
