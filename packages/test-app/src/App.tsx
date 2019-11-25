@@ -2,7 +2,7 @@ import * as React from "react";
 import { Provider, connect } from "react-redux";
 import { Route, Switch } from "react-router";
 import { ConnectedRouter } from "connected-react-router";
-import store, { TodoState, RootState, history, DummyState } from "./store";
+import store, { TodoState, RootState, history } from "./store";
 import { TodoContainer } from "./TodoContainer";
 import { GLTest } from "./GLTest";
 import ErrorDisplay from "./ErrorDisplay";

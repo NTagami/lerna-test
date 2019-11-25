@@ -44,7 +44,6 @@
     "cypress-cucumber-preprocessor": "^1.16.2",
     "eslint": "^6.6.0",
     "eslint-plugin-react": "^7.16.0",
-    "fast-check": "^1.19.0",
     "jest-webgl-canvas-mock": "^0.2.2",
     "lerna": "^3.19.0",
     "react-docgen-typescript-loader": "^3.5.0",

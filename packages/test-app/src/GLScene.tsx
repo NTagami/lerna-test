@@ -201,17 +201,33 @@ interface DummyState {
   st: number;
 }
 
+/*
+function doEither<ERR, A, B, C>(
+  f0: E.Either<ERR, A>,
+  f1: (n: A) => E.Either<ERR, B>,
+  f2: (a: A, b: B) => E.Either<ERR, C>
+): E.Either<ERR, C> {
+  return pipe(
+    f0,
+    E.chain(a =>
+      pipe(
+        f1(a),
+        E.chain(b => f2(a, b))
+      )
+    )
+  );
+}
+*/
 export function buildGLScene(gl: GLContext): E.Either<GLError, GLScene> {
   let vertexShader: WebGLShader | null = null;
   let fragmentShader: WebGLShader | null = null;
   let program: WebGLProgram | null = null;
   let buffer: WebGLBuffer | null = null;
-
   /*
-  pipe(
+  doEither(
     E.right(0),
-    E.chain(o => E.right(2)),
-    E.chain(o => E.left(""))
+    a => E.right(1),
+    (a, b) => E.left("")
   );
 */
   /*

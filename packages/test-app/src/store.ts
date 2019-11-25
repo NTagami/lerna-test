@@ -33,12 +33,9 @@ export interface CommonState {
   error: string | null;
 }
 
-export interface DummyState {}
-
 export interface RootState {
   todoState: TodoState;
   common: CommonState;
-  dummy: DummyState;
 }
 
 const enhancer = composeReduxDevToolsEnhancers(
