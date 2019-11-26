@@ -4,7 +4,8 @@
   "private": true,
   "dependencies": {
     "google-map-react": "^1.1.5",
-    "react-scripts": "3.2.0"
+    "react-scripts": "3.2.0",
+    "test-lib": "^0.2.0"
   },
   "devDependencies": {
     "@emotion/core": "^10.0.22",
