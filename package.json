@@ -1,8 +1,10 @@
 {
   "name": "root",
-  "private": true,
+    "private": true,
+    "scripts": {
+        "storybook": "start-storybook"
+},
   "dependencies": {
-    "@material-ui/core": "^4.6.0",
     "connected-react-router": "^6.5.2",
     "fp-ts": "^2.1.1",
     "gl-matrix": "^3.1.0",
@@ -19,6 +21,15 @@
   "devDependencies": {
     "@babel/plugin-proposal-nullish-coalescing-operator": "^7.4.4",
     "@babel/plugin-proposal-optional-chaining": "^7.6.0",
+    "@storybook/addon-actions": "^5.2.6",
+    "@storybook/addon-console": "^1.2.1",
+    "@storybook/addon-knobs": "^5.2.6",
+    "@storybook/addon-links": "^5.2.6",
+    "@storybook/addon-storysource": "^5.2.6",
+    "@storybook/addon-viewport": "^5.2.6",
+    "@storybook/addons": "^5.2.6",
+    "@storybook/cli": "^5.2.6",
+    "@storybook/react": "^5.2.6",
     "@types/gl-matrix": "^2.4.5",
     "@types/history": "^4.7.3",
     "@types/jest": "24.0.23",
