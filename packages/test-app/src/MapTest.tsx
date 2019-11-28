@@ -25,7 +25,7 @@ export const MapTest: React.FC<Props> = ({ dispatch }) => {
         ></GoogleMapReact>
       </div>
 
-      <div>{helper.button("Main", () => dispatch(push("/")))}</div>
+      <div>{helper.staticButton("Main", () => dispatch(push("/")))}</div>
     </div>
   );
 };
