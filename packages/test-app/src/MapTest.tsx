@@ -1,7 +1,7 @@
 import * as React from "react";
 import { DispatchProp } from "react-redux";
 
-import { makeFCHelper } from "./CommonStyles";
+import { useButtonHelper } from "./CommonStyles";
 import { push } from "connected-react-router";
 import GoogleMapReact from "google-map-react";
 /*
@@ -13,7 +13,7 @@ interface MapPos {
 type Props = DispatchProp;
 
 export const MapTest: React.FC<Props> = ({ dispatch }) => {
-  const helper = makeFCHelper();
+  const button = useButtonHelper();
   const API_KEY: string = process.env.REACT_APP_GOOGLE_MAP_API_KEY ?? "";
   return (
     <div>
@@ -25,7 +25,7 @@ export const MapTest: React.FC<Props> = ({ dispatch }) => {
         ></GoogleMapReact>
       </div>
 
-      <div>{helper.staticButton("Main", () => dispatch(push("/")))}</div>
+      <div>{button("Main", () => dispatch(push("/")))}</div>
     </div>
   );
 };

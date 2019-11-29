@@ -30,19 +30,13 @@ function makeButton(classes: any, message: string, onClick: () => void) {
   );
 }
 
-class FCHelper {
-  private classes = useStyles();
+export function useButtonHelper() {
+  const classes = useStyles();
 
-  public button = (message: string, onClick: () => void) => {
-    return makeButton(this.classes, message, onClick);
-  };
-
-  public staticButton = (message: string, onClick: () => void) => {
-    return React.useMemo(() => makeButton(this.classes, message, onClick), []);
-  };
-}
-
-// React.FC の中で使用可
-export function makeFCHelper() {
-  return new FCHelper();
+  const button = React.useCallback(
+    (message: string, onClick: () => void) =>
+      makeButton(classes, message, onClick),
+    []
+  );
+  return button;
 }

@@ -3,7 +3,7 @@ import * as React from "react";
 import Drawer from "@material-ui/core/Drawer";
 import TextField from "@material-ui/core/TextField";
 import { Todo } from "./types";
-import { makeFCHelper } from "./CommonStyles";
+import { useButtonHelper } from "./CommonStyles";
 
 interface Props {
   todos: Todo[];
@@ -23,7 +23,7 @@ const TodoComponent: React.FC<Props> = ({
   const [state, setState] = React.useState<State>({ text: "" });
   const [drawerOpen, openDrawer] = React.useState(false);
 
-  const helper = makeFCHelper();
+  const button = useButtonHelper();
   const { text } = state;
 
   const cbOpenDrawer = React.useCallback(() => openDrawer(true), []);
@@ -37,9 +37,9 @@ const TodoComponent: React.FC<Props> = ({
         value={text}
         onChange={e => setState({ text: e.currentTarget.value })}
       />
-      {helper.button("Add todo", cbOnAdd)}
-      {helper.staticButton("Drawer", cbOpenDrawer)}
-      {helper.staticButton("GL", gotoHoge)}
+      {button("Add todo", cbOnAdd)}
+      {button("Drawer", cbOpenDrawer)}
+      {button("GL", gotoHoge)}
       {React.useMemo(
         () => (
           <ul>

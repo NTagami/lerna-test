@@ -5,7 +5,7 @@ import { DispatchProp } from "react-redux";
 import { jsx } from "@emotion/core";
 //import css from "@emotion/css/macro";
 import { push } from "connected-react-router";
-import { makeFCHelper, vertical } from "./CommonStyles";
+import { useButtonHelper, vertical } from "./CommonStyles";
 import { buildGLScene, GLScene, glError, GLError, GLContext } from "./GLScene";
 import * as E from "fp-ts/lib/Either";
 //import Option, { none, some, fromNullable } from 'fp-ts/lib/Option'
@@ -50,7 +50,7 @@ function buildScene(canvas: HTMLCanvasElement): E.Either<GLError, GLScene> {
 }
 
 export const GLTest: React.FC<Props> = ({ dispatch }) => {
-  const helper = makeFCHelper();
+  const button = useButtonHelper();
   const canvasRef = React.useRef<HTMLCanvasElement>(null);
   const sceneRef = React.useRef<GLScene | null>(null);
 
@@ -71,8 +71,8 @@ export const GLTest: React.FC<Props> = ({ dispatch }) => {
   return (
     <div css={vertical}>
       <div>
-        {helper.button("Main", () => dispatch(push("/")))}
-        {helper.button("Map", () => dispatch(push("/map")))}
+        {button("Main", () => dispatch(push("/")))}
+        {button("Map", () => dispatch(push("/map")))}
       </div>
       <div>
         <canvas ref={canvasRef} width={"500px"} height={"300px"} />
