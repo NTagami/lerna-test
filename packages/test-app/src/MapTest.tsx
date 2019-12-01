@@ -16,7 +16,7 @@ export const MapTest: React.FC<Props> = ({ dispatch }) => {
   const button = useButtonHelper();
   const API_KEY: string = process.env.REACT_APP_GOOGLE_MAP_API_KEY ?? "";
   return (
-    <div>
+    <>
       <div style={{ height: "500px", width: "500px" }}>
         <GoogleMapReact
           bootstrapURLKeys={{ key: API_KEY }}
@@ -26,6 +26,7 @@ export const MapTest: React.FC<Props> = ({ dispatch }) => {
       </div>
 
       <div>{button("Main", () => dispatch(push("/")))}</div>
-    </div>
+      <div>{button("Three", () => dispatch(push("/three")))}</div>
+    </>
   );
 };

@@ -8,6 +8,7 @@ import { TodoContainer } from "./TodoContainer";
 import { GLTest } from "./GLTest";
 import ErrorDisplay from "./ErrorDisplay";
 import { MapTest } from "./MapTest";
+import { ThreeTest } from "./ThreeTest";
 
 const Container: React.FC = () => {
   const dispatch: Dispatch<Action> = useDispatch();
@@ -33,6 +34,11 @@ const Container: React.FC = () => {
             exact
             path="/map"
             render={() => <MapTest {...dispatchProps} />}
+          />
+          <Route
+            exact
+            path="/three"
+            render={() => <ThreeTest {...dispatchProps} />}
           />
           <Route render={() => <div>Unexpected path</div>} />
         </Switch>
