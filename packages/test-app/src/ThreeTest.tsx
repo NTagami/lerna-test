@@ -24,8 +24,10 @@ const Thing: React.FC = () => {
   const ref = React.useRef<Node>(null);
 
   useFrame(() => {
-    if (ref.current != null && ref.current.rotation != null) {
-      ref.current.rotation.x = ref.current.rotation.y += 0.01;
+    const current: Node | null = ref.current;
+
+    if (current != null && current.rotation != null) {
+      current.rotation.x = current.rotation.y += 0.01;
     }
   });
 
