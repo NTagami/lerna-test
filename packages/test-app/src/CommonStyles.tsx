@@ -36,7 +36,7 @@ export function useButtonHelper() {
   const button = React.useCallback(
     (message: string, onClick: () => void) =>
       makeButton(classes, message, onClick),
-    []
+    [classes]
   );
   return button;
 }

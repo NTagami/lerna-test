@@ -28,7 +28,7 @@ const TodoComponent: React.FC<Props> = ({
 
   const cbOpenDrawer = React.useCallback(() => openDrawer(true), []);
   const cbCloseDrawer = React.useCallback(() => openDrawer(false), []);
-  const cbOnAdd = React.useCallback(() => onClickAddButton(text), [text]);
+  const cbOnAdd = React.useCallback(() => onClickAddButton(text), [onClickAddButton, text]);
 
   return (
     <div style={{ width: "500px", margin: "0 auto" }}>
