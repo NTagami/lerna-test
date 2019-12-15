@@ -61,6 +61,12 @@ const Thing: React.FC = () => {
   );
 };
 
+function arrow(x: number, y: number, z: number): JSX.Element {
+  return (
+    <arrowHelper attach="dir" args={[new Three.Vector3(x, y, z)]}></arrowHelper>
+  );
+}
+
 const Test = React.memo(() => {
   //const Test: React.FC = () => {
   const ref = React.useRef<Node>(null);
@@ -85,18 +91,7 @@ const Test = React.memo(() => {
 
   return (
     <mesh ref={ref} position={[0, 0, 3]}>
-      <arrowHelper
-        attach="dir"
-        args={[new Three.Vector3(0, 1, 0)]}
-      ></arrowHelper>
-      <arrowHelper
-        attach="dir"
-        args={[new Three.Vector3(1, 0, 0)]}
-      ></arrowHelper>
-      <arrowHelper
-        attach="dir"
-        args={[new Three.Vector3(0, 0, 1)]}
-      ></arrowHelper>
+      <axesHelper attach="size" args={[1]} />
       <mesh scale={[6, -6, 6]} position={[-2, 3.2, -3]}>
         <primitive object={points} />
       </mesh>
