@@ -11,10 +11,16 @@ import {
   Canvas,
   useFrame,
   useLoader,
-  ReactThreeFiber
+  useThree,
+  useRender,
+  ReactThreeFiber,
+  extend
 } from "react-three-fiber";
 
 import { PCDLoader } from "three/examples/jsm/loaders/PCDLoader";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+
+extend({ OrbitControls });
 
 const theme = css`
   width: 50vw;
@@ -32,6 +38,28 @@ type meshNormalMaterial = ReactThreeFiber.MaterialNode<
   [Three.MeshNormalMaterialParameters]
 >;
 */
+
+declare global {
+  // eslint-disable-next-line @typescript-eslint/no-namespace
+  namespace JSX {
+    interface IntrinsicElements {
+      orbitControls: any;
+    }
+  }
+}
+
+interface Updateable {
+  update: () => void;
+}
+
+const Controls = (props: any) => {
+  const { gl, camera } = useThree();
+  const ref = React.useRef<Updateable>();
+  //  useRender(() => ref.current?.update(), false);
+
+  return <orbitControls ref={ref} args={[camera, gl.domElement]} {...props} />;
+};
+
 interface Node {
   rotation?: Three.Euler;
 }
@@ -70,7 +98,7 @@ function arrow(x: number, y: number, z: number): JSX.Element {
 const Test = React.memo(() => {
   //const Test: React.FC = () => {
   const ref = React.useRef<Node>(null);
-
+  /*
   useFrame(() => {
     const current: Node | null = ref.current;
 
@@ -78,7 +106,7 @@ const Test = React.memo(() => {
       current.rotation.y += 0.01;
     }
   });
-
+*/
   const points = useLoader(
     PCDLoader,
     "/Zaghetto.pcd"
@@ -108,7 +136,6 @@ export const ThreeTest: React.FC<DispatchProp> = ({ dispatch }) => {
         <Canvas
           onCreated={({ gl, camera }) => {
             camera.lookAt(new Three.Vector3(0, 1, 0));
-
             /*
             gl.clippingPlanes.push(
               new Three.Plane(new Three.Vector3(0, -1, 0), 0)
@@ -121,6 +148,7 @@ export const ThreeTest: React.FC<DispatchProp> = ({ dispatch }) => {
             far: 1000
           }}
         >
+          <Controls />
           <React.Suspense fallback={null}>
             <Test />
           </React.Suspense>
