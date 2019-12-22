@@ -13,10 +13,6 @@ export const TodoContainer: React.FC<Props> = ({ todos, dispatch }) => {
     <TodoComponent
       todos={todos}
       onClickAddButton={todo => dispatch(addTodo(todo))}
-      gotoHoge={() => {
-        //dispatch(errorMessage("TEST"));
-        dispatch(push("/gl"));
-      }}
     />
   );
 };

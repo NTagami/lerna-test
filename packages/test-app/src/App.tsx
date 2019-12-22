@@ -9,15 +9,25 @@ import { GLTest } from "./GLTest";
 import ErrorDisplay from "./ErrorDisplay";
 import { MapTest } from "./MapTest";
 import { ThreeTest } from "./ThreeTest";
+import { GestureTest } from "./GestureTest";
+import Drawer from "@material-ui/core/Drawer";
+import { useButtonHelper } from "./CommonStyles";
+import { push } from "connected-react-router";
 
 const Container: React.FC = () => {
   const dispatch: Dispatch<Action> = useDispatch();
   const todo = useSelector<RootState, TodoState>(st => st.todoState);
-  const dispatchProps = { dispatch };
+
   const todoProps = { ...todo, dispatch };
+  const button = useButtonHelper();
+
+  const [drawerOpen, openDrawer] = React.useState(false);
+  const cbOpenDrawer = React.useCallback(() => openDrawer(true), []);
+  const cbCloseDrawer = React.useCallback(() => openDrawer(false), []);
 
   return (
     <React.Fragment>
+      {button("Drawer", cbOpenDrawer)}
       <ConnectedRouter history={history}>
         <Switch>
           <Route
@@ -25,24 +35,20 @@ const Container: React.FC = () => {
             path="/"
             render={() => <TodoContainer {...todoProps} />}
           />
-          <Route
-            exact
-            path="/gl"
-            render={() => <GLTest {...dispatchProps} />}
-          />
-          <Route
-            exact
-            path="/map"
-            render={() => <MapTest {...dispatchProps} />}
-          />
-          <Route
-            exact
-            path="/three"
-            render={() => <ThreeTest {...dispatchProps} />}
-          />
+          <Route exact path="/gl" render={() => <GLTest />} />
+          <Route exact path="/map" render={() => <MapTest />} />
+          <Route exact path="/three" render={() => <ThreeTest />} />
+          <Route exact path="/gesture" render={() => <GestureTest />} />
           <Route render={() => <div>Unexpected path</div>} />
         </Switch>
       </ConnectedRouter>
+      <Drawer open={drawerOpen} onClose={cbCloseDrawer}>
+        {button("Main", () => dispatch(push("/")))}
+        {button("GL", () => dispatch(push("/gl")))}
+        {button("Map", () => dispatch(push("/map")))}
+        {button("Three", () => dispatch(push("/three")))}
+        {button("Gesture", () => dispatch(push("/gesture")))}
+      </Drawer>
       <ErrorDisplay />
     </React.Fragment>
   );

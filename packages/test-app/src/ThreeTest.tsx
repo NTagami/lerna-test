@@ -4,8 +4,6 @@ import { DispatchProp } from "react-redux";
 
 import { jsx, css } from "@emotion/core";
 
-import { useButtonHelper } from "./CommonStyles";
-import { push } from "connected-react-router";
 import * as Three from "three";
 import {
   Canvas,
@@ -128,8 +126,7 @@ const Test = React.memo(() => {
   //  return <div></div>;
 });
 
-export const ThreeTest: React.FC<DispatchProp> = ({ dispatch }) => {
-  const button = useButtonHelper();
+export const ThreeTest: React.FC<{}> = ({}) => {
   return (
     <>
       <div css={theme}>
@@ -154,7 +151,6 @@ export const ThreeTest: React.FC<DispatchProp> = ({ dispatch }) => {
           </React.Suspense>
         </Canvas>
       </div>
-      <div>{button("Main", () => dispatch(push("/")))}</div>
     </>
   );
 };

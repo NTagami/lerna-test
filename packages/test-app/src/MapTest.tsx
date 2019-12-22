@@ -10,9 +10,8 @@ interface MapPos {
   zoom: number;
 }
 */
-type Props = DispatchProp;
 
-export const MapTest: React.FC<Props> = ({ dispatch }) => {
+export const MapTest: React.FC<{}> = ({}) => {
   const button = useButtonHelper();
   const API_KEY: string = process.env.REACT_APP_GOOGLE_MAP_API_KEY ?? "";
   return (
@@ -24,9 +23,6 @@ export const MapTest: React.FC<Props> = ({ dispatch }) => {
           defaultZoom={11}
         ></GoogleMapReact>
       </div>
-
-      <div>{button("Main", () => dispatch(push("/")))}</div>
-      <div>{button("Three", () => dispatch(push("/three")))}</div>
     </>
   );
 };
