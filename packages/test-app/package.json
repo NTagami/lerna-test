@@ -8,7 +8,7 @@
     "comlink": "^4.1.0",
     "google-map-react": "^1.1.5",
     "react-scripts": "3.2.0",
-    "react-spring": "^8.0.27",
+    "react-spring": "^9.0.0-beta.34",
     "react-three-fiber": "^3.0.15",
     "react-use-gesture": "^6.0.14",
     "three": "^0.111.0"

@@ -13,6 +13,7 @@ import { GestureTest } from "./GestureTest";
 import Drawer from "@material-ui/core/Drawer";
 import { useButtonHelper } from "./CommonStyles";
 import { push } from "connected-react-router";
+import { Three2 } from "./Three2";
 
 const Container: React.FC = () => {
   const dispatch: Dispatch<Action> = useDispatch();
@@ -39,6 +40,7 @@ const Container: React.FC = () => {
           <Route exact path="/map" render={() => <MapTest />} />
           <Route exact path="/three" render={() => <ThreeTest />} />
           <Route exact path="/gesture" render={() => <GestureTest />} />
+          <Route exact path="/three2" render={() => <Three2 />} />
           <Route render={() => <div>Unexpected path</div>} />
         </Switch>
       </ConnectedRouter>
@@ -48,6 +50,7 @@ const Container: React.FC = () => {
         {button("Map", () => dispatch(push("/map")))}
         {button("Three", () => dispatch(push("/three")))}
         {button("Gesture", () => dispatch(push("/gesture")))}
+        {button("Three2", () => dispatch(push("/three2")))}
       </Drawer>
       <ErrorDisplay />
     </React.Fragment>

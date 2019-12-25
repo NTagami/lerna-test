@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import * as React from "react";
-import { DispatchProp } from "react-redux";
 
 import { jsx, css } from "@emotion/core";
 
@@ -10,8 +9,6 @@ import {
   useFrame,
   useLoader,
   useThree,
-  useRender,
-  ReactThreeFiber,
   extend
 } from "react-three-fiber";
 
@@ -126,31 +123,29 @@ const Test = React.memo(() => {
   //  return <div></div>;
 });
 
-export const ThreeTest: React.FC<{}> = ({}) => {
+export const ThreeTest: React.FC = () => {
   return (
-    <>
-      <div css={theme}>
-        <Canvas
-          onCreated={({ gl, camera }) => {
-            camera.lookAt(new Three.Vector3(0, 1, 0));
-            /*
+    <div css={theme}>
+      <Canvas
+        onCreated={({ gl, camera }) => {
+          camera.lookAt(new Three.Vector3(0, 1, 0));
+          /*
             gl.clippingPlanes.push(
               new Three.Plane(new Three.Vector3(0, -1, 0), 0)
             );*/
-          }}
-          camera={{
-            fov: 75,
-            position: [0, -0.5, 5],
-            near: 0.1,
-            far: 1000
-          }}
-        >
-          <Controls />
-          <React.Suspense fallback={null}>
-            <Test />
-          </React.Suspense>
-        </Canvas>
-      </div>
-    </>
+        }}
+        camera={{
+          fov: 75,
+          position: [0, -0.5, 5],
+          near: 0.1,
+          far: 1000
+        }}
+      >
+        <Controls />
+        <React.Suspense fallback={null}>
+          <Test />
+        </React.Suspense>
+      </Canvas>
+    </div>
   );
 };

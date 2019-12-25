@@ -2,14 +2,8 @@
 //import styled from "styled-components";
 import { jsx, css } from "@emotion/core";
 import * as React from "react";
-import { DispatchProp } from "react-redux";
 
-import {
-  useSpring,
-  animated,
-  interpolate,
-  OpaqueInterpolation
-} from "react-spring";
+import { useSpring, animated, interpolate } from "react-spring";
 import { useDrag } from "react-use-gesture";
 
 const theme = css`
@@ -46,16 +40,14 @@ const Animated = styled(animated.div)`
 `;
 */
 function PullRelease(): JSX.Element {
-  const [{ x, y }, set] = useSpring(() => ({
-    x: 0,
-    y: 0
+  const [{ x }, set] = useSpring(() => ({
+    x: 0
   }));
 
   // Set the drag hook and define component movement based on gesture data
   const bind = useDrag(({ down, movement: [mx, my] }) => {
     set({
-      x: down ? mx : 0,
-      y: down ? my : 0
+      x: down ? mx : 0
     });
   });
   /*
@@ -66,15 +58,13 @@ function PullRelease(): JSX.Element {
   // Bind it to a component
   return (
     <animated.div
-      css={body}
       {...bind()}
       style={{
-        transform: interpolate(
-          [x, y],
-          (x, y) => `translate3d(${x}px, ${y}px, 0px)`
-        )
+        transform: x.interpolate(p => `translate3d(${p}px, 0px, 0px)`)
       }}
-    />
+    >
+      <div css={body} />
+    </animated.div>
   );
 }
 
