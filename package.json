@@ -48,7 +48,7 @@
     "lerna": "^3.19.0",
     "react-docgen-typescript-loader": "^3.5.0",
     "redux-devtools": "^3.5.0",
-    "standard-version": "^7.0.0",
+    "standard-version": "^8.0.1",
     "typescript": "3.7.2"
   }
 }
